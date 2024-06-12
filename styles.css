@@ -1,0 +1,19 @@
+/* Apply a gradient background to the body */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #365740, #16331F);
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
