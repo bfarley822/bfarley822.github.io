@@ -1,15 +1,33 @@
-/* Apply a gradient background to the body */
-body {
+html, body {
+    height: 100%;
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+html {
+    background: linear-gradient(to bottom right, #365740, #16331F);
+    background-attachment: fixed;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom right, #365740, #16331F);
-    font-family: Arial, sans-serif;
-    color: white;
-    text-align: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 img {
