@@ -4,22 +4,25 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Prevent scrolling on html and body */
-    position: relative; /* Required for pseudo-element positioning */
+    overflow: hidden; /* Prevent default scrolling */
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+html {
     background: linear-gradient(to bottom right, #365740, #16331F);
-    z-index: -1; /* Place behind all content */
-    background-size: cover; /* Ensure it covers the entire area */
+    background-size: cover; /* Ensure the gradient covers the entire viewport */
     background-position: center; /* Center the gradient */
-    pointer-events: none; /* Allow interactions through the pseudo-element */
+    background-attachment: fixed; /* Fix the gradient in place */
+    -webkit-background-clip: padding-box; /* Clip the gradient to include padding */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    overflow: auto; /* Allow scrolling */
+    position: relative; /* Needed for container alignment */
 }
 
 /* Centered content container */
@@ -32,8 +35,6 @@ body::before {
     width: 100%;
     padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom) 20px;
     box-sizing: border-box;
-    color: white;
-    overflow: auto; /* Allow scrolling */
 }
 
 /* Image styling */
@@ -42,5 +43,3 @@ img {
     height: 150px;
     margin-bottom: 20px;
 }
-
-
