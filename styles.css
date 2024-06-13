@@ -1,13 +1,15 @@
+/* Ensure the gradient background covers the entire page */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     font-family: Arial, sans-serif;
 }
+
 html {
     background: linear-gradient(to bottom right, #365740, #16331F);
-    background-attachment: fixed;
+    background-attachment: fixed; /* Make the background fixed to cover all areas */
+    overflow: hidden; /* Prevent scrolling on html */
 }
 
 body {
@@ -16,12 +18,22 @@ body {
     align-items: center;
     color: white;
     text-align: center;
-    height: 100%;
-    width: 100%;
-    overflow: auto; /* Allow scrolling */
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    position: relative; /* Required for pseudo-element positioning */
+    overflow: hidden; /* Prevent scrolling on body */
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #365740, #16331F);
+    z-index: -1; /* Place behind all content */
+}
+
+/* Centered content container */
 .container {
     display: flex;
     flex-direction: column;
@@ -29,13 +41,15 @@ body {
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    overflow-y: auto;
-    padding: 20px;
+    padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom) 20px;
     box-sizing: border-box;
+    overflow: auto; /* Allow scrolling */
 }
 
+/* Image styling */
 img {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
 }
+
