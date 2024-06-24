@@ -38,8 +38,13 @@ body {
 }
 
 /* Image styling */
-img {
+.logo {
     width: 150px;
     height: 150px;
     margin-bottom: 20px;
+}
+
+.app-store {
+    height: 75px;
+    margin-top: 75px;
 }
